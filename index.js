@@ -2,7 +2,7 @@ const express = require("express")
 const bodyparser = require("body-parser");
 const http = require("http");
 let app = express();
-let token = process.env.token;
+let token = "EAAWzl46ZCT0kBAMToI2F0t2yOBWt85fJ6Sz2K71ADkvRjR4MyEv1ZAzxeR50jCMXRCZAKgCvZBlizh3UPB6J8qN6HpvEYJIi7ntebsIAOa2juMfJeX9fzavPzOvPWaw6BZAzZAmbEJscGPVnZBQl3LMGhnP3GndDN0ZA2lSE1MzuI1ZBM9I3sikja";
 let verify_token = "shiroinvolveinnovationmind";
 app.use(bodyparser.urlencoded({extends:false}));
 app.use(bodyparser.json());

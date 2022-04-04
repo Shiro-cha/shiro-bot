@@ -72,7 +72,7 @@ function handleMessage(sender_psid, received_message) {
 		
 		// Create the payload for a basic text message
 		response = {
-			"De aona :D"
+			"text": "De aona :D"
 		}
 	}  
 	
@@ -106,5 +106,5 @@ function callSendAPI(sender_psid, response) {
 
 app.listen(process.env.PORT||8080,function(err){
 	if(err) throw err;
-		   console.log(`Server starting at port ${process.env.PORT||8080}`);
+	console.log(`Server starting at port ${process.env.PORT||8080}`);
 });

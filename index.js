@@ -2,7 +2,7 @@ const express = require("express")
 const bodyparser = require("body-parser");
 const request = require("request");
 let app = express();
-let token = "EAAWzl46ZCT0kBAFuRkZCB9tjTFV6hFjK3Ol0hlvWwR5UUrCa0Xu3YQJyc6SoGLFkfSHKIjXl9VDMgQevZC9ZCo6ODqZCID3gl6RpZANnsbcJPm54U4cSxnkrCNaZCZA8AG4mILDhebHcmFSFNKZClzcotnjMZCRU6JHpdiKQBwuSrq0HMnEXZBce9I9";
+let token="EAAWzl46ZCT0kBAFuRkZCB9tjTFV6hFjK3Ol0hlvWwR5UUrCa0Xu3YQJyc6SoGLFkfSHKIjXl9VDMgQevZC9ZCo6ODqZCID3gl6RpZANnsbcJPm54U4cSxnkrCNaZCZA8AG4mILDhebHcmFSFNKZClzcotnjMZCRU6JHpdiKQBwuSrq0HMnEXZBce9I9";
 let verify_token = "shiroinvolveinnovationmind";
 app.use(bodyparser.urlencoded({extends:false}));
 app.use(bodyparser.json());
@@ -37,11 +37,9 @@ app.post('/webhook', (req, res) => {
 			
 			// Gets the message. entry.messaging is an array, but 
 			// will only ever contain one message, so we get index 0
-			entry.messaging.forEach(function(evt){
-				if(evt.message && evt.message.text){
-					receiveing(evt);
-				}
-			});
+			if(entry.messaging[0].message && entry.messaging[0].message.text ){
+				receiving(entry.messaging[0]);
+			}
 		});
 		// Returns a '200 OK' response to all requests
 		res.status(200).send('EVENT_RECEIVED');
@@ -68,15 +66,21 @@ function receiving(evt){
 }
 
 function callsendapi(messagedata){
+	// Construct the message body
+	
+	
+	// Send the HTTP request to the Messenger Platform
 	request({
-		uri:"https://graph.facebook.com/v13.0/me/messages",
-		 qs:{acces_token:token},
-		 method:"POST",
-		 json:messagedata
-	})
-}
-var port = process.env.PORT||8080;
-app.listen(port,function(){
-    console.log(`App is running at port ${port}...`);
+		"uri": "https://graph.facebook.com/v2.6/me/messages",
+		 "qs": { "access_token": token },
+		 "method": "POST",
+		 "json": messagedata
+	}, (err, res, body) => {
+		if (!err) {
+			console.log('message sent!')
+		} else {
+			console.error("Unable to send message:" + err);
+		}
+	}); 
 });
 

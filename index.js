@@ -29,7 +29,7 @@ app.post("/webhook",function(req,res){
 
     var data = req.body;
     if(data.object =="page"){
-        data.entry.foreach(function(pageentry){
+        data.entry.forEach(function(pageentry){
             let pageId = pageentry.id;
             let timeout = pageentry.time;
             pageentry.messaging.foreach(function(evt){

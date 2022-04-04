@@ -70,7 +70,7 @@ function receiving(evt){
 function callsendapi(messagedata){
 	request({
 		uri:"https://graph.facebook.com/v13.0/me/messages",
-		 qs:{acces_token:token}
+		 qs:{acces_token:token},
 		 method:"POST",
 		 json:messagedata
 	})

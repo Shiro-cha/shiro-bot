@@ -71,9 +71,20 @@ function handleMessage(sender_psid, received_message) {
 	if (received_message.text) {    
 		
 		// Create the payload for a basic text message
-		response = {
-			"text": "De aona :D"
+		if(received_message.text=="coucou"){
+			response = {
+				"text": "De aona"
+			}
+		}else if(received_message.text=="ça va?"){
+			response = {
+				"text": "cava tsika be men :d"
+			}
+		}else{
+			response = {
+				"text": "leo aho :p"
+			}
 		}
+		
 	}  
 	
 	// Sends the response message

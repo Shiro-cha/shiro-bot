@@ -9,7 +9,7 @@ app.use(bodyparser.json());
 
 app.get("/",function(req,res){
 
-    res.send("Shiro Bot Application work ;)");
+    res.send("Tongasoa eto amin'ny Shiro Bot .....");
 
 });
 
@@ -25,32 +25,40 @@ app.get("/webhook" , function(req,res){
 
 });
 
-app.post("/webhook",function(req,res){
-
-    var data = req.body;
-    if(data.object =="page"){
-		console.log(data.entry);
-        data.entry.forEach(function(pageentry){
-            let pageId = pageentry.id;
-            let timeout = pageentry.time;
-            pageentry.messaging.forEach(function(evt){
-                if(evt.message && evt.message.text){
-					receiving(evt);
-                }
-            });
-        });
-    }
-
+app.post('/webhook', (req, res) => {  
+	
+	let body = req.body;
+	
+	// Checks this is an event from a page subscription
+	if (body.object === 'page') {
+		
+		// Iterates over each entry - there may be multiple if batched
+		body.entry.forEach(function(entry) {
+			
+			// Gets the message. entry.messaging is an array, but 
+			// will only ever contain one message, so we get index 0
+			entry.messaging.forEach(function(evt){
+				if(evt.message && evt.message.text){
+					receiveing(evt);
+				}
+			});
+		});
+		// Returns a '200 OK' response to all requests
+		res.status(200).send('EVENT_RECEIVED');
+	} else {
+		// Returns a '404 Not Found' if event is not from a page subscription
+		res.sendStatus(404);
+	}
+	
+	
 });
 
 
 function receiving(evt){
     var senderid = evt.sender.id;
     var recipientid = evt.recipient.id
-    var timeofmessage = evt.timestamp;
     var message = evt.message.text;
     let text = evt.message.text;
-    text = text || "";
     var messageText = `Hello user id:${senderid}`;
     var messagedata = {
         recipient:{id:senderid},

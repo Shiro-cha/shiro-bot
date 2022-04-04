@@ -4,7 +4,7 @@ const request = require("request");
 let app = express();
 let token="EAAWzl46ZCT0kBAFuRkZCB9tjTFV6hFjK3Ol0hlvWwR5UUrCa0Xu3YQJyc6SoGLFkfSHKIjXl9VDMgQevZC9ZCo6ODqZCID3gl6RpZANnsbcJPm54U4cSxnkrCNaZCZA8AG4mILDhebHcmFSFNKZClzcotnjMZCRU6JHpdiKQBwuSrq0HMnEXZBce9I9";
 let verify_token = "shiroinvolveinnovationmind";
-app.use(bodyparser.urlencoded({extends:false}));
+app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 
 app.get("/",function(req,res){
@@ -103,3 +103,8 @@ function callSendAPI(sender_psid, response) {
 		}
 	}); 
 }
+
+app.listen(process.env.PORT||8080,function(err){
+	if(err) throw err;
+		   console.log(`Server starting at port ${process.env.PORT||8080}`);
+});

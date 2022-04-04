@@ -1,6 +1,6 @@
 const express = require("express")
 const bodyparser = require("body-parser");
-const http = require("http");
+const request = require("request");
 let app = express();
 let token = "EAAWzl46ZCT0kBAFuRkZCB9tjTFV6hFjK3Ol0hlvWwR5UUrCa0Xu3YQJyc6SoGLFkfSHKIjXl9VDMgQevZC9ZCo6ODqZCID3gl6RpZANnsbcJPm54U4cSxnkrCNaZCZA8AG4mILDhebHcmFSFNKZClzcotnjMZCRU6JHpdiKQBwuSrq0HMnEXZBce9I9";
 let verify_token = "shiroinvolveinnovationmind";
@@ -69,7 +69,8 @@ function receiving(evt){
 
 function callsendapi(messagedata){
 	request({
-		url:`https://graph.facebook.com/v13.0/me/messages?acces_token=${token}`,
+		uri:"https://graph.facebook.com/v13.0/me/messages",
+		 qs:{acces_token:token}
 		 method:"POST",
 		 json:messagedata
 	})

@@ -1,4 +1,5 @@
-const express = require("express")
+const express = require("express");
+const path = require("path");
 const bodyparser = require("body-parser");
 const request = require("request");
 let app = express();
@@ -7,11 +8,7 @@ let verify_token = "shiroinvolveinnovationmind";
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 
-app.get("/",function(req,res){
-
-    res.send("Tongasoa eto amin'ny Shiro Bot .....");
-
-});
+app.use("/",express.static(path.join(__dirname,"static")))
 
 app.get("/webhook" , function(req,res){
 

@@ -2,7 +2,7 @@ const express = require("express")
 const bodyparser = require("body-parser");
 const http = require("http");
 let app = express();
-let token = "EAAWzl46ZCT0kBADzl6iw02IkdI61mXeEMUcQgilLb8InB4UwVap2XZC9Eyy1a26dUh0C4qFyHbZAtYP6aw8jFdRhgXP2QZCHzRxvNt9OPB7y4c6wRFUiHb66JFF7ggwH0ZBmjbIlZCpAPlJM1zRSRUse8rDqPhJy0ulb2aGqkGxrDSAfNv7F3g";
+let token = "EAAWzl46ZCT0kBAFuRkZCB9tjTFV6hFjK3Ol0hlvWwR5UUrCa0Xu3YQJyc6SoGLFkfSHKIjXl9VDMgQevZC9ZCo6ODqZCID3gl6RpZANnsbcJPm54U4cSxnkrCNaZCZA8AG4mILDhebHcmFSFNKZClzcotnjMZCRU6JHpdiKQBwuSrq0HMnEXZBce9I9";
 let verify_token = "shiroinvolveinnovationmind";
 app.use(bodyparser.urlencoded({extends:false}));
 app.use(bodyparser.json());
@@ -35,7 +35,7 @@ app.post("/webhook",function(req,res){
             let timeout = pageentry.time;
             pageentry.messaging.forEach(function(evt){
                 if(evt.message && evt.message.text){
-
+					receiving(evt);
                 }
             });
         });
@@ -60,12 +60,12 @@ function receiving(evt){
 }
 
 function callsendapi(messagedata){
-    request({
-        url:"graph.facebook.com/v2.6/me/messages",
-        qs:{acces_token:token},
-        method:"POST",
-        json:messagedata
-    });
+	request({
+		url:"https://graph.facebook.com/v13.0/me",
+		 qs:{acces_token:token},
+		 method:"POST",
+		 json:messagedata
+	})
 }
 var port = process.env.PORT||8080;
 app.listen(port,function(){

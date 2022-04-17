@@ -3,7 +3,7 @@ const shiro_response = require("./shiro_response.js");
 
 
 module.export = function(){
-	this.handleMessage = function(sender_psid, received_message,token) {
+		this.handleMessage = function(sender_psid, received_message,token) {
 		
 		let response;
 		

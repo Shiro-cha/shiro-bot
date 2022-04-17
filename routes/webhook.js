@@ -44,7 +44,7 @@ router.post("/",function(req,res){
 			// pass the event to the appropriate handler function
 			if (webhook_event.message) {
 				
-				prepare_msg.handleMessage(sender_psid, webhook_event.message,access_env.token_facebook);        
+				prepare_msg().handleMessage(sender_psid, webhook_event.message,access_env.token_facebook);        
 			} 
 			
 		});

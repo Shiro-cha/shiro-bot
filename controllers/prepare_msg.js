@@ -35,12 +35,12 @@ module.exports = function(){
 					{
 					"content_type":"text",
 					"title":"click me",
-					"playload":"Im cliked"
+					"payload":"Im cliked"
 					},
 					{
 					"content_type":"text",
 					"title":"click me 2",
-					"playload":"Im cliked"
+					"payload":"Im cliked 2"
 					}
 				]
 				
@@ -56,7 +56,7 @@ module.exports = function(){
 		  "json": request_body
 		}, (err, res, body) => {
 			if (!err) {
-				console.log(res);
+				console.log("sent!!!!!");
 			} else {
 				console.error("Unable to send message:" + err);
 			}

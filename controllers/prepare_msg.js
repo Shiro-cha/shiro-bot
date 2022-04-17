@@ -28,10 +28,12 @@ module.exports = function(){
 			"recipient": {
 				"id": sender_psid
 			},
+			"messaging_type":"RESPONSE",
 			"message": {
 				"quick_replies":[{
 					"content_type":"text",
-					"title":"Hello oe"
+					"title":"Hello oe",
+					"playload":"<POSTBACK_PAYLOAD>"
 				}],
 				"text":response
 				

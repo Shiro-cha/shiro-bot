@@ -28,13 +28,18 @@ module.exports = function(){
 			"recipient": {
 				"id": sender_psid
 			},
-			"messaging_type":"RESPONSE",
+			"messaging_type": "RESPONSE",
 			"message": {
 				"text":response,
 				"quick_replies":[
 					{
 					"content_type":"text",
 					"title":"click me",
+					"playload":"Im cliked"
+					},
+					{
+					"content_type":"text",
+					"title":"click me 2",
 					"playload":"Im cliked"
 					}
 				]
@@ -51,7 +56,7 @@ module.exports = function(){
 		  "json": request_body
 		}, (err, res, body) => {
 			if (!err) {
-				console.log('message sent!')
+				console.log(res);
 			} else {
 				console.error("Unable to send message:" + err);
 			}

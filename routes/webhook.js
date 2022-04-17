@@ -3,10 +3,10 @@ const access_env = require("../config/access_env.js");
 const prepare_msg = require("../controllers/prepare_msg.js");
 
 let router = express.Router();
-
+let message = new prepare_msg();
 
 // GET /webhook
-
+console.log(message);
 router.get("/",function(req,res){
 	
 	if(req.query["hub.mode"] === "subscribe" && req.query["hub.verify_token"] === access_env.verify_token){
@@ -44,7 +44,7 @@ router.post("/",function(req,res){
 			// pass the event to the appropriate handler function
 			if (webhook_event.message) {
 				
-				prepare_msg().handleMessage(sender_psid, webhook_event.message,access_env.token_facebook);        
+				message.handleMessage(sender_psid, webhook_event.message,access_env.token_facebook);        
 			} 
 			
 		});

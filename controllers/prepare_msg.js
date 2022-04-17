@@ -2,7 +2,7 @@ const request = require("request");
 const shiro_response = require("./shiro_response.js");
 
 
-module.export = function(){
+module.exports = function(){
 		this.handleMessage = function(sender_psid, received_message,token) {
 		
 		let response;

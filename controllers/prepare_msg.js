@@ -34,12 +34,12 @@ module.exports = function(){
 				"quick_replies":[
 					{
 					"content_type":"text",
-					"title":"click me",
+					"title":"yes",
 					"payload":"Im cliked"
 					},
 					{
 					"content_type":"text",
-					"title":"click me 2",
+					"title":"Ofcorse",
 					"payload":"Im cliked 2"
 					}
 				]

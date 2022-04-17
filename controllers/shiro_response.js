@@ -1,3 +1,3 @@
 module.exports ={
-	text:"hello"
+	text:"Are you gay?"
 }

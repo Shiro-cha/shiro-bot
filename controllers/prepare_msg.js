@@ -17,9 +17,10 @@ module.export = function(){
 		}  
 		
 		// Sends the response message
-		this.callSendAPI(sender_psid, response,token);    
+		callSendAPI(sender_psid, response,token);    
 	}
-	this.callSendAPI = function(sender_psid, response) {
+	
+	function callSendAPI(sender_psid, response) {
 		// Construct the message body
 		let request_body = {
 			"recipient": {

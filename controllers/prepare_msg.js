@@ -33,7 +33,8 @@ module.exports = function(){
 				"quick_replies":[
 					{
 					"content_type":"text",
-					"title":"click me"
+					"title":"click me",
+					"playload":"Im cliked"
 					}
 				],
 				"text":response

@@ -30,6 +30,12 @@ module.exports = function(){
 			},
 			"messaging_type":"RESPONSE",
 			"message": {
+				"quick_replies":[
+					{
+					"content_type":"text",
+					"title":"click me"
+					}
+				],
 				"text":response
 				
 			}

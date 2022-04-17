@@ -1,5 +1,6 @@
 const request = require("request");
 const shiro_response = require("./shiro_response.js");
+const access_env = require("../config/access_env.js");
 
 
 module.exports = function(){
@@ -20,7 +21,7 @@ module.exports = function(){
 		callSendAPI(sender_psid, response,token);    
 	}
 	
-	function callSendAPI(sender_psid, response) {
+	function callSendAPI(sender_psid, response , token) {
 		// Construct the message body
 		let request_body = {
 			"recipient": {
@@ -32,7 +33,7 @@ module.exports = function(){
 		// Send the HTTP request to the Messenger Platform
 		request({
 			"uri": "https://graph.facebook.com/v2.6/me/messages",
-		  "qs": { "access_token": token },
+		  "qs": { "access_token": access_env.fa },
 		  "method": "POST",
 		  "json": request_body
 		}, (err, res, body) => {

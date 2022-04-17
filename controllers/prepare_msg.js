@@ -28,13 +28,16 @@ module.exports = function(){
 			"recipient": {
 				"id": sender_psid
 			},
-			"message": response
+			"message": {
+				"text":response
+				
+			}
 		}
 		
 		// Send the HTTP request to the Messenger Platform
 		request({
 			"uri": "https://graph.facebook.com/v2.6/me/messages",
-		  "qs": { "access_token": access_env.fa },
+		  "qs": { "access_token": token },
 		  "method": "POST",
 		  "json": request_body
 		}, (err, res, body) => {

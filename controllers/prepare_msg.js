@@ -29,10 +29,10 @@ module.exports = function(){
 				"id": sender_psid
 			},
 			"message": {
-				"quick_replay":{
-					"type":"text",
+				"quick_replies":[{
+					"content_type":"text",
 					"title":"Hello oe"
-				},
+				}],
 				"text":response
 				
 			}

@@ -30,11 +30,6 @@ module.exports = function(){
 			},
 			"messaging_type":"RESPONSE",
 			"message": {
-				"quick_replies":[{
-					"content_type":"text",
-					"title":"Hello oe",
-					"playload":"<POSTBACK_PAYLOAD>"
-				}],
 				"text":response
 				
 			}
@@ -42,7 +37,7 @@ module.exports = function(){
 		
 		// Send the HTTP request to the Messenger Platform
 		request({
-			"uri": "https://graph.facebook.com/v2.6/me/messages",
+			"uri": "https://graph.facebook.com/v13.0/me/messages",
 		  "qs": { "access_token": token },
 		  "method": "POST",
 		  "json": request_body

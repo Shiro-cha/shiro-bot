@@ -14,14 +14,15 @@ module.exports = function(){
 			//set the response to the message
 			
 			response = shiro_response.text;
+			console.log(response);
 			
 		}  
 		
 		// Sends the response message
-		callSendAPI(sender_psid, response,token);    
+		callSendAPI(sender_psid,response,token);    
 	}
 	
-	function callSendAPI(sender_psid, response , token) {
+	function callSendAPI(sender_psid,response , token) {
 		// Construct the message body
 		let request_body = {
 			"recipient": {

@@ -1,6 +1,6 @@
 const request = require("request");
 const shiro_response = require("./shiro_response.js");
-const access_env = require("../config/access_env.js");
+const access_env = require("../../../config/access_env");
 
 
 module.exports = function(){
@@ -39,7 +39,7 @@ module.exports = function(){
 					},
 					{
 					"content_type":"text",
-					"title":"Ofcorse",
+					"title":"ofcorse",
 					"payload":"Im cliked 2"
 					}
 				]

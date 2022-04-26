@@ -64,11 +64,36 @@
         <div class="container text-center">
             <p>Copyright © Shiro Bot 2022</p>
         </div>
+        <div id="facebook"></div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <script src="assets/js/script.min.js"></script>
-</body>
+
+    
+    <script>
+    window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '1604838399889225',
+		  cookie     : true,
+		  xfbml      : true,
+		  version    : '8.0'
+		});
+		
+		FB.AppEvents.logPageView();   
+		
+	};
+	
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById("facebook")) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+    
+    </body>
 
 </html>
